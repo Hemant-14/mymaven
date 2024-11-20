@@ -24,36 +24,5 @@ pipeline
                 }
             }
         }
-        stage('ContDeploy_master')
-        {
-            steps
-            {
-                script
-                {
-                cicd1.deploy("DSLP","172.31.44.189","test")
-                }
-            }
-        }
-        stage('ContTest_master')
-        {
-            steps
-            {
-                script
-                {
-                cicd1.download("FunctionalTesting")
-                cicd1.test("DSLP")
-                }
-            }
-        }
-        stage('ContDelivery_master')
-        {
-            steps
-            {
-                script
-                {
-                cicd1.deploy("DSLP","172.31.91.46","prod")
-                }
-            }
-        }
     }
 }
